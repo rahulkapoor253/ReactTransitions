@@ -18,7 +18,7 @@ constructor(props) {
 }
 
 handleToggle = () => {
-alert("toggle button ");
+//alert("toggle button ");
 this.setState({
   appearHome : !this.state.appearHome
 })
@@ -39,17 +39,19 @@ handleNext = () => {
 }
 
   render() {
+    const {appearHome, property} = this.state;
     return (
       <div className="App">
         
         <div>
          <button onClick={this.handleToggle}>Toggle</button>
-         <button onClick={this.handlePrev} disabled={this.state.property.index === 0}>Prev</button>
-         <button onClick={this.handleNext} disabled={this.state.property.index === this.state.property.length -1}>Next</button>
+         <button onClick={this.handleNext} disabled={property.index === data.properties.length -1}>Next</button>
+        
+         <button onClick={this.handlePrev} disabled={property.index === 0}>Prev</button>
          </div>
 
 <CSSTransition
-in={this.state.appearHome}
+in={appearHome}
 appear={true}
 timeout={300}
 classNames="fade"
